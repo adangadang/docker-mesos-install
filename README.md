@@ -29,7 +29,8 @@ yum install marathon
 systemctl  enable marathon
 systemctl  stop marathon
 systemctl  start marathon
-
+[root@local24 ~]# more /etc/sysconfig/marathon 
+http_credentials "user:password"
 
  # agent install 
  rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-2.noarch.rpm
@@ -47,7 +48,7 @@ more /etc/mesos-slave/hostname
 
 # marathon-lb 在centos下性能差，单进程只有8k/s左右 centos版的haproxy在2w/s左右
  docker run  --rm --name lb -e PORTS=9090 --net=host  mesosphere/marathon-lb sse --marathon http://10.15.206.24:8080 --group external
- 
+ docker run  --rm --name lb -e PORTS=9090 --net=host 6a4b7f212529  sse --marathon http://10.15.206.24:8080 --group external --auth-credentials user:password
  
  
  docker run -d --net=host -v "/usr/local/mesos-dns/config.json:/config.json" -v "$(pwd)/logs:/tmp" mesosphere/mesos-dns:0.5.2 /usr/bin/mesos-dns -v=2 -config=/config.json

@@ -4,10 +4,12 @@ docker install
 
 最新  curl -sSL https://get.docker.com/ |  sh    或 yum install docker 
 
-#mesos marathon  zookeeper  install 
+#mesos marathon  zookeeper  install    # master install 
 
 rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-2.noarch.rpm
+
 yum install mesos
+
 systemctl  disable mesos-slave
 systemctl  enable mesos-master
 systemctl  start mesos-master
@@ -17,9 +19,11 @@ zk://localhost:2181/mesos
 10.15.206.24
 [root@local24 ~]# more /etc/mesos-master/ip
 10.15.206.24
- # master install 
-yum install  mesosphere-zookeeper
 
+yum install  mesosphere-zookeeper
+systemctl  enable zookeeper
+systemctl  stop zookeeper
+systemctl  start zookeeper
 
 yum install marathon
 systemctl  enable marathon

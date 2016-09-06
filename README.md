@@ -45,6 +45,17 @@ more /etc/mesos-slave/ip
 10.15.206.23
 more /etc/mesos-slave/hostname
 10.15.206.23
+###########################echo####################################
+echo 'zk://10.15.206.31:2181/mesos' > /etc/mesos/zk 
+echo '10.15.206.34' > /etc/mesos-slave/ip
+echo '10.15.206.34' > /etc/mesos-slave/hostname
+echo 'docker,mesos' > /etc/mesos-slave/containerizers
+
+
+############################echo########################
+
+
+
 
 # marathon-lb 在centos下性能差，单进程只有8k/s左右 centos版的haproxy在2w/s左右
  docker run  --rm --name lb -e PORTS=9090 --net=host  mesosphere/marathon-lb sse --marathon http://10.15.206.24:8080 --group external

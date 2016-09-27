@@ -1,0 +1,48 @@
+只允许指定的ip访问本机的指定端口1521：
+
+允许的的ip：192.168.1.123, 192.168.1.124, 192.168.1.100，其他ip都禁止访问。
+
+ 
+
+切换到root用户
+
+1、在tcp协议中，禁止所有的ip访问本机的1521端口。
+
+iptables -I INPUT -p tcp --dport 1521 -j DROP
+
+ 
+
+2、允许192.168.1.123访问本机的1521端口
+
+iptables -I INPUT -s 192.168.1.123 -p tcp --dport 1521 -j ACCEPT
+
+ 
+
+3、允许192.168.1.124访问本机的1521端口
+
+iptables -I INPUT -s 192.168.1.124 -p tcp --dport 1521 -j ACCEPT
+
+ 
+
+4、允许192.168.1.100访问本机的1521端口
+
+iptables -I INPUT -s 192.168.1.100 -p tcp --dport 1521 -j ACCEPT
+
+ 
+
+注意以上4条命令的顺序不能错。
+
+
+以上是临时设置。
+2.然后保存iptables
+# service iptables save
+3.重启防火墙
+#service iptables restart
+
+在此说一下关于启动和关闭防火墙的命令:
+1) 重启后生效
+开启： chkconfig iptables on
+关闭： chkconfig iptables off
+2) 即时生效，重启后失效
+开启： service iptables start
+关闭： service iptables stop 

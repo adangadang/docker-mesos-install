@@ -57,7 +57,7 @@ echo 'docker,mesos' > /etc/mesos-slave/containerizers
 
 
 
-# marathon-lb 在centos下性能差，单进程只有8k/s左右 centos版的haproxy在2w/s左右
+# marathon-lb 在centos下性能差，单进程只有8k/s左右 centos版的haproxy在2w/s左右 (cpu为2.0下测试  在cpu为3.5测试能达到5w/s 不同cpu性能并发不一样)
  docker run  --rm --name lb -e PORTS=9090 --net=host  mesosphere/marathon-lb sse --marathon http://10.15.206.24:8080 --group external
  docker run  --rm --name lb -e PORTS=9090 --net=host 6a4b7f212529  sse --marathon http://10.15.206.24:8080 --group external --auth-credentials user:password
  

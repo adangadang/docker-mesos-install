@@ -1,0 +1,40 @@
+centos运行不了setup命令？怎么安装setup tools
+
+http://jingyan.baidu.com/article/25648fc1a303ce9191fd0032.html
+
+ Setup命令是linux下面用来配置网络，防火墙，系统服务等设置的图形小工具。使用起来非常方便简单，可是centos\redhat最小化安装之后发现setup命令工具用不了，咗嚛本经验就以centos为例介绍如何安装setup小工具
+ 
+ 
+ 1.安装setup tools 小工具，以centos为例  yum install setuptool  查找到之后，输入Y确认安装
+centos运行不了setup命令？怎么安装setup tools
+centos运行不了setup命令？怎么安装setup tools
+
+安装好之后，你会发现里面什么都没有，这只是一个图形工具。我们需要用到的网络服务，防火墙，系统服务等需要另外再安装
+centos运行不了setup命令？怎么安装setup tools
+4
+
+安装工具组件
+
+   安装好setup tools 工具之后，我们需要安装工具组件如 ntsysv(系统服务）system-config-network-tui（网络服务）iptables(防火墙配置）等 
+centos运行不了setup命令？怎么安装setup tools
+
+system-config-firewall-base.noarch : system-config-firewall base components and command line tool
+system-config-keyboard-base.noarch : system-config-keyboard base components
+cups-pk-helper.x86_64 : A helper that makes system-config-printer use PolicyKit
+system-config-date.noarch : A graphical interface for modifying system date and time
+system-config-date-docs.noarch : Documentation for setting the system date and time
+system-config-firewall.noarch : A graphical interface for basic firewall setup
+system-config-firewall-tui.noarch : A text interface for basic firewall setup
+system-config-kdump.noarch : A graphical interface for configuring kernel crash dumping
+system-config-keyboard.noarch : A graphical interface for modifying the keyboard
+system-config-kickstart.noarch : A graphical interface for making kickstart files
+system-config-language.noarch : A graphical interface for modifying the system language
+system-config-printer.x86_64 : A printer administration tool
+system-config-printer-libs.noarch : Libraries and shared code for printer administration tool
+system-config-printer-udev.x86_64 : Rules for udev for automatic configuration of USB printers
+system-config-users.noarch : A graphical interface for administering users and groups
+system-config-users-docs.noarch : Documentation for administering users and groups
+
+5
+
+  再次运行setup之后你会发现常用的配置都安装上去了。当然如果你只需要部

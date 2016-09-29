@@ -9,3 +9,7 @@ iptables -I INPUT -p udp --dport 161 -j ACCEPT
 test
 
 snmpwalk -v 2c -c public localhost .1.3.6.1.2.1.1.1
+
+
+
+http://jingyan.baidu.com/article/066074d64b303ac3c21cb0ef.html

